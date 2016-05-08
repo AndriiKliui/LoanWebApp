@@ -1,0 +1,35 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="2_1" author="kliui" runOnChange="true">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*) from user where email = 'user@4finance.com'</sqlCheck>
+        </preConditions>
+        <insert tableName="user">
+            <column name="first_name" value="User"/>
+            <column name="second_name" value="User"/>
+            <column name="email" value="user@4finance.com"/>
+            <column name="password" value="d264694a93c580611801b23da431600291b807bf51fec8432533759849949fb34b0b8e139a6695ae"/>
+            <column name="created" value="2016-05-02 16:33:14"/>
+            <column name="role" value="2"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="2_2" author="kliui" runOnChange="true">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">select count(*) from user where email = 'admin@4finance.com'</sqlCheck>
+        </preConditions>
+        <insert tableName="user">
+            <column name="first_name" value="Admin"/>
+            <column name="second_name" value="Admin"/>
+            <column name="email" value="admin@4finance.com"/>
+            <column name="password" value="89f6bd8cd2de873ab965e37ad68102d42d7867ea0cf19a69f86aa0345099e07befe79950a6e9f33b"/>
+            <column name="created" value="2016-05-02 16:35:14"/>
+            <column name="role" value="1"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
